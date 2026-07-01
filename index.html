@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumina To Do — Mission 4</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/design-system.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+</head>
+<body data-page="dashboard">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-logo"><i data-lucide="layers"></i></div>
+        <div class="sidebar-brand-text"><h2>Lumina To Do</h2><span>Task Planner</span></div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link active" data-page="dashboard"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+        <a href="my-tasks.html" class="sidebar-link" data-page="tasks"><i data-lucide="list-checks"></i><span>Daftar Task</span></a>
+        <a href="analytics.html" class="sidebar-link" data-page="analytics"><i data-lucide="bar-chart-3"></i><span>Statistik</span></a>
+        <a href="user.html" class="sidebar-link" data-page="user"><i data-lucide="user-round"></i><span>User</span></a>
+      </nav>
+      <div class="sidebar-user-section">
+        <div class="user-switcher-area"></div>
+      </div>
+      <div class="sidebar-bottom">
+        <a href="create-task.html" class="sidebar-new-task"><i data-lucide="plus-circle"></i><span>Task Baru</span></a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <header class="top-header">
+      <h1 class="top-header-title">Dashboard</h1>
+      <div class="top-header-actions">
+        <div class="avatar avatar-initials">-</div>
+      </div>
+    </header>
+
+    <header class="mobile-topbar mobile-topbar-simple">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <button class="mobile-hamburger" id="mobileHamburger"><i data-lucide="menu"></i></button>
+        <div class="avatar avatar-initials" style="width:32px;height:32px;font-size:11px;">-</div>
+        <span class="mobile-topbar-title">Dashboard</span>
+      </div>
+    </header>
+
+    <main class="app-main mission-main">
+      <section class="user-welcome animate-fade-in">
+        <div class="user-welcome-row">
+          <div class="user-welcome-info">
+            <p class="user-welcome-greeting" id="greeting">Selamat datang</p>
+            <h2 class="user-welcome-name" id="userNameDisplay">-</h2>
+          </div>
+          <button class="btn-secondary" id="editNameBtn" style="flex-shrink:0;"><i data-lucide="pencil" style="width:16px;height:16px;"></i> Ganti Nama</button>
+        </div>
+        <div class="user-name-edit" id="nameEditSection" style="display:none;">
+          <input type="text" id="nameInput" class="quick-input" placeholder="Ketik nama Anda..." maxlength="30" />
+          <button class="btn-primary" id="saveNameBtn" style="padding:10px 20px;"><i data-lucide="check" style="width:16px;height:16px;"></i> Simpan</button>
+        </div>
+      </section>
+
+      <section class="mission-top-grid stagger">
+        <article class="base-card info-panel reveal">
+          <div class="panel-head">
+            <div class="panel-icon"><i data-lucide="calendar-days"></i></div>
+            <div>
+              <p class="panel-eyebrow">Waktu</p>
+              <h3>Hari & Tanggal</h3>
+            </div>
+          </div>
+          <div class="time-card-main">
+            <p class="time-day" id="currentDayText">-</p>
+            <p class="time-date" id="currentDateText">-</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="base-card task-composer-panel reveal">
+        <div class="panel-head">
+          <div class="panel-icon"><i data-lucide="square-pen"></i></div>
+          <div>
+            <p class="panel-eyebrow">Task Baru</p>
+            <h3>Tulis Agenda To Do</h3>
+          </div>
+        </div>
+
+        <form id="missionTaskForm" class="mission-task-form">
+          <label class="mission-label" for="missionTaskTitle">Judul Task</label>
+          <input type="text" id="missionTaskTitle" class="mission-textarea" placeholder="Contoh: Laporan penjualan Q3" maxlength="120" style="min-height:auto;resize:none;" />
+
+          <label class="mission-label" for="missionTaskInput">Deskripsi (optional)</label>
+          <textarea id="missionTaskInput" class="mission-textarea" rows="3" placeholder="Detail atau catatan tambahan..." maxlength="300"></textarea>
+
+          <div class="mission-form-footer">
+            <div class="mission-priority-wrap">
+              <label class="mission-label" for="missionPriority">Prioritas</label>
+              <select id="missionPriority" class="mission-select">
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+            <div class="mission-priority-wrap">
+              <label class="mission-label" for="missionDeadline">Deadline</label>
+              <input type="date" id="missionDeadline" class="mission-select" />
+            </div>
+            <button type="submit" class="btn-primary mission-submit-btn">
+              <i data-lucide="send"></i>
+              Simpan Task
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="mission-board-grid">
+        <article class="base-card board-card reveal">
+          <div class="board-head overdue-head">
+            <div>
+              <p class="panel-eyebrow">Terlambat</p>
+              <h3>Overdue</h3>
+            </div>
+            <span class="board-count" id="countOverdue">0</span>
+          </div>
+          <div class="board-list" id="overdueList"></div>
+        </article>
+
+        <article class="base-card board-card reveal">
+          <div class="board-head todo-head">
+            <div>
+              <p class="panel-eyebrow">Akan Dikerjakan</p>
+              <h3>To Do</h3>
+            </div>
+            <span class="board-count" id="countTodo">0</span>
+          </div>
+          <div class="board-list" id="todoList"></div>
+        </article>
+
+        <article class="base-card board-card reveal">
+          <div class="board-head done-head">
+            <div>
+              <p class="panel-eyebrow">Selesai</p>
+              <h3>Done</h3>
+            </div>
+            <span class="board-count" id="countDone">0</span>
+          </div>
+          <div class="board-list" id="doneList"></div>
+        </article>
+      </section>
+
+      <section class="danger-zone reveal" id="dangerZone" style="display:none;">
+        <div class="danger-zone-info">
+          <i data-lucide="alert-triangle" style="width:24px;height:24px;color:var(--error);"></i>
+          <div class="danger-zone-text">
+            <h3>Hapus Semua Data</h3>
+            <p>Menghapus seluruh task dan data profile yang tersimpan di aplikasi ini.</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;">
+          <button class="btn-danger" id="deleteAllBtn"><i data-lucide="trash-2" style="width:16px;height:16px;"></i> Hapus Semua</button>
+          <button class="btn-danger" id="resetAllDataBtn" style="background:#943700;"><i data-lucide="refresh-cw" style="width:16px;height:16px;"></i> Reset Data</button>
+        </div>
+      </section>
+    </main>
+
+    <nav class="mobile-bottomnav">
+      <div class="bottomnav-inner">
+        <a href="index.html" class="bottomnav-item active" data-page="dashboard"><div class="bottomnav-icon-wrap"><i data-lucide="home"></i></div><span>Beranda</span></a>
+        <a href="my-tasks.html" class="bottomnav-item" data-page="tasks"><div class="bottomnav-icon-wrap"><i data-lucide="list-checks"></i></div><span>Task</span></a>
+        <a href="analytics.html" class="bottomnav-item" data-page="analytics"><div class="bottomnav-icon-wrap"><i data-lucide="bar-chart-3"></i></div><span>Statistik</span></a>
+        <a href="user.html" class="bottomnav-item" data-page="user"><div class="bottomnav-icon-wrap"><i data-lucide="user-round"></i></div><span>User</span></a>
+      </div>
+    </nav>
+
+    <a href="create-task.html" class="fab" aria-label="Create new task"><i data-lucide="plus"></i></a>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/user-switcher.js"></script>
+  <script src="assets/js/shell.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

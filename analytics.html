@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumina To Do — Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/design-system.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/analytics.css" />
+</head>
+<body data-page="analytics">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-logo"><i data-lucide="layers"></i></div>
+        <div class="sidebar-brand-text"><h2>Lumina To Do</h2><span>Task Planner</span></div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link" data-page="dashboard"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+        <a href="my-tasks.html" class="sidebar-link" data-page="tasks"><i data-lucide="list-checks"></i><span>Daftar Task</span></a>
+        <a href="analytics.html" class="sidebar-link active" data-page="analytics"><i data-lucide="bar-chart-3"></i><span>Statistik</span></a>
+        <a href="user.html" class="sidebar-link" data-page="user"><i data-lucide="user-round"></i><span>User</span></a>
+      </nav>
+      <div class="sidebar-user-section">
+        <div class="user-switcher-area"></div>
+      </div>
+      <div class="sidebar-bottom">
+        <a href="create-task.html" class="sidebar-new-task"><i data-lucide="plus-circle"></i><span>Task Baru</span></a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <header class="top-header">
+      <h1 class="top-header-title">Statistik</h1>
+      <div class="top-header-actions"><div class="avatar avatar-initials">-</div></div>
+    </header>
+
+    <header class="mobile-topbar mobile-topbar-simple">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <button class="mobile-hamburger" id="mobileHamburger"><i data-lucide="menu"></i></button>
+        <div class="avatar avatar-initials" style="width:32px;height:32px;font-size:11px;">-</div>
+        <span class="mobile-topbar-title">Statistik</span>
+      </div>
+    </header>
+
+    <main class="app-main" id="analyticsContent">
+    </main>
+
+    <nav class="mobile-bottomnav">
+      <div class="bottomnav-inner">
+        <a href="index.html" class="bottomnav-item" data-page="dashboard"><div class="bottomnav-icon-wrap"><i data-lucide="home"></i></div><span>Beranda</span></a>
+        <a href="my-tasks.html" class="bottomnav-item" data-page="tasks"><div class="bottomnav-icon-wrap"><i data-lucide="list-checks"></i></div><span>Task</span></a>
+        <a href="analytics.html" class="bottomnav-item active" data-page="analytics"><div class="bottomnav-icon-wrap"><i data-lucide="bar-chart-3"></i></div><span>Statistik</span></a>
+        <a href="user.html" class="bottomnav-item" data-page="user"><div class="bottomnav-icon-wrap"><i data-lucide="user-round"></i></div><span>User</span></a>
+      </div>
+    </nav>
+  </div>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/user-switcher.js"></script>
+  <script src="assets/js/shell.js"></script>
+  <script src="assets/js/analytics.js"></script>
+</body>
+</html>

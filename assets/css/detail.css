@@ -1,0 +1,150 @@
+.detail-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-md);
+  margin-bottom: var(--sp-lg);
+  flex-wrap: wrap;
+}
+
+.detail-header-badges {
+  display: flex;
+  gap: var(--sp-sm);
+  flex-wrap: wrap;
+}
+
+.detail-title {
+  font: var(--headline-xl);
+  color: var(--on-surface);
+  width: 100%;
+}
+
+.detail-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-lg);
+  font: var(--body-md);
+  color: var(--on-surface-variant);
+  width: 100%;
+}
+
+.detail-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.detail-meta-item [data-lucide] {
+  width: 18px;
+  height: 18px;
+}
+
+.detail-bento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-md);
+  margin-bottom: var(--sp-xl);
+}
+
+.bento-card {
+  padding: var(--sp-lg);
+}
+
+.bento-card-label {
+  font: var(--label-sm);
+  color: var(--on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--sp-sm);
+}
+
+.bento-card-value {
+  font: var(--headline-md);
+  color: var(--on-surface);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary-container);
+  animation: pulse 2s infinite;
+}
+
+.detail-section {
+  margin-bottom: var(--sp-xl);
+}
+
+.detail-section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  font: var(--headline-md);
+  margin-bottom: var(--sp-md);
+}
+
+.detail-section-title [data-lucide] {
+  width: 20px;
+  height: 20px;
+  color: var(--on-surface-variant);
+}
+
+.detail-description {
+  font: var(--body-lg);
+  color: var(--on-surface-variant);
+  line-height: 1.7;
+  padding: var(--sp-lg);
+  background: var(--surface-container-lowest);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--r-lg);
+}
+
+.detail-description ul {
+  margin-top: var(--sp-sm);
+  padding-left: var(--sp-lg);
+}
+
+.detail-description li {
+  margin-bottom: 4px;
+}
+
+.detail-float-action {
+  position: sticky;
+  bottom: 0;
+  padding: var(--sp-md) 0;
+  background: linear-gradient(transparent, var(--surface) 20%);
+  z-index: 10;
+}
+
+.detail-float-action .btn-primary {
+  width: 100%;
+  padding: 16px;
+  font: var(--headline-md);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: var(--label-md);
+  color: var(--on-surface-variant);
+  margin-bottom: var(--sp-lg);
+  text-decoration: none;
+  transition: all var(--t-fast);
+}
+
+.back-link:hover {
+  color: var(--primary);
+  transform: translateX(-4px);
+}
+
+@media (max-width: 767px) {
+  .detail-title {
+    font: var(--headline-xl-m);
+  }
+  .detail-bento {
+    grid-template-columns: 1fr;
+  }
+}
