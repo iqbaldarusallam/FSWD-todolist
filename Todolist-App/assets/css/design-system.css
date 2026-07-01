@@ -449,7 +449,7 @@ img {
 }
 .toast-error [data-lucide] { color: var(--error); }
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .toast-container { bottom: 80px; right: 12px; left: 12px; }
 }
 

@@ -194,12 +194,23 @@
   color: var(--on-surface-variant);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .analytics-bento {
     grid-template-columns: 1fr;
   }
+  .bar-chart {
+    height: 140px;
+  }
+}
 
+@media (max-width: 767px) {
   .productivity-score {
     font-size: 40px;
+  }
+  .bento-metric {
+    padding: var(--sp-md);
+  }
+  .bar-chart {
+    height: 120px;
   }
 }

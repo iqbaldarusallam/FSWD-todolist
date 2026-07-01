@@ -532,12 +532,31 @@
 }
 
 @media (max-width: 1024px) {
-  .mission-summary-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .mission-main {
+    gap: var(--sp-lg);
   }
-
+  .info-panel,
+  .task-composer-panel,
+  .summary-card,
+  .board-card {
+    padding: var(--sp-md);
+  }
+  .panel-head h3 {
+    font: var(--headline-lg-m);
+  }
+  .panel-icon {
+    width: 40px;
+    height: 40px;
+  }
   .mission-board-grid {
     grid-template-columns: 1fr;
+    gap: var(--sp-md);
+  }
+}
+
+@media (max-width: 767px) {
+  .mission-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
